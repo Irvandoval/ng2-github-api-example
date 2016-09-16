@@ -15,7 +15,6 @@ export class GithubProfileComponent implements OnInit {
   charging: boolean;
 
   constructor(private gitHubAPIService: GitHubAPIService) {
-    this.gitHubAPIService = gitHubAPIService;
     this.charging = false;
    }
 
