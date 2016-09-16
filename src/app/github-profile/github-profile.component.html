@@ -1,0 +1,29 @@
+
+<div class="row">
+  <div class="col-md-12 alert alert-info" [hidden]="!charging">Charging..</div>
+  <div class="col-md-4">
+    <form name="form" class="form" (ngSubmit)="findProfile()" novalidate>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input id="username" type="text" class="form-control"  [(ngModel)]="username" name="username" #user="ngModel" required>
+        <div [hidden]="user.valid" class="alert alert-danger">This field can't be blank</div>
+      </div>
+      <button class="btn btn-success" type="submit" [disabled]="user.invalid">Find</button>
+    </form>
+  </div>
+  <div class="col-md-8 text-center">
+    <div class="row">
+      <div class="col-sm-6 col-md-4" *ngIf="auxProfile">
+        <div class="thumbnail">
+          <img src="{{auxProfile.avatar_url}}" alt="user_avatar">
+          <div class="caption">
+            <h3>{{auxProfile.name}}</h3>
+            <p>{{auxProfile.login}}</p>
+            <p>{{auxProfile.location}}</p>
+            <a target="_blank" href="{{auxProfile.html_url}}" class="btn btn-primary" role="button">Go to GitHub Profile</a> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
